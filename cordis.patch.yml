@@ -1,0 +1,13 @@
+- insert:
+    - id: voice-autosend-stt
+      name: '@deepseek-ai/dsh-experimental-speech-to-text'
+      config:
+        defaultProvider: sensevoice-local
+    - id: voice-autosend-sensevoice
+      name: '@deepseek-ai/dsh-experimental-speech-to-text-sensevoice'
+      config:
+        dataRoot: !!js dshHomePath('speech-to-text', 'sensevoice')
+    - id: voice-autosend-stt-api
+      name: '@deepseek-ai/dsh-experimental-api-speech-to-text'
+    - id: voice-autosend
+      name: 'dsh-plugin-voice-autosend'
