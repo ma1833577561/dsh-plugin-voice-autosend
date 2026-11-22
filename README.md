@@ -75,3 +75,4 @@ MIT. See [LICENSE](LICENSE) and [NOTICE](NOTICE) for the upstream attribution.
 首次使用点「下载并准备」拉取约 242 MB 模型（只需一次）。
 
 注意：如果之前开过内置的「语音输入」插件，请先关掉它，否则两者会注册同一个识别服务。
+本插件的设置页也会常驻一条提示，说明这一点，避免打开后一头雾水。
