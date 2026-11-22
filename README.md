@@ -9,8 +9,15 @@ the draft first. Transcription runs **locally** on your machine with SenseVoice,
 ## What it does
 
 - **Speak instead of typing** — a microphone button sits between the model picker and the send button.
+- **Live transcript** — while you speak, the last few seconds are transcribed continuously and shown
+  under the waveform, so you can see recognition working before you stop.
 - **Auto-send** — when the recognizer returns text, it is inserted into the draft and submitted in the
   same tick, so the turn starts immediately. Empty or failed transcriptions never send anything.
+- **Spoken commands** — finish a sentence with a command word to control the result:
+  `换行` / `new line`, `新段落` / `new paragraph`, punctuation words (`句号` `逗号` `问号` `感叹号`…),
+  or `不要发送` / `don't send` to keep the text in the composer without sending it.
+- **One-click conflict fix** — if the built-in *Voice input* plugin is on, the settings page can turn
+  it off for you instead of asking you to hunt for the toggle.
 - **Local, offline recognition** — [SenseVoiceSmall](https://huggingface.co/csukuangfj/sherpa-onnx-sense-voice-zh-en-ja-ko-yue-2024-07-17)
   INT8 via sherpa-onnx. Audio is transcribed on the host that runs DSH; nothing is uploaded.
 - **Languages** — auto-detect, Chinese, English, Cantonese, Japanese, Korean, Spanish, French, German,
@@ -41,13 +48,25 @@ Then open **Plugins → voice-autosend** and press **Download and prepare** the 
 SenseVoice model (~242 MB) is fetched once into `~/.dsh/speech-to-text/sensevoice` and reused.
 
 > If you previously enabled the built-in **Voice Input** plugin, turn it off first: both register the
-> same speech provider, and two copies of the recognizer cannot coexist.
+> same speech provider, and two copies of the recognizer cannot coexist. The settings page has a
+> **Turn off built-in voice input** button that does this for you.
 
 ## Usage
 
 1. Click the microphone next to the send button.
-2. Speak. Click **Stop and transcribe** (or let it stop at 120 s).
-3. The transcript is inserted and sent. Cancel any time with the ✕ button.
+2. Speak — the live transcript appears under the waveform every couple of seconds.
+3. Click **Stop and transcribe** (or let it stop at 120 s).
+4. The transcript is inserted and sent. Cancel any time with the ✕ button.
+
+Add a command word at the end of a sentence to change what happens:
+
+| Say | Result |
+| --- | --- |
+| `换行` / `new line` | insert a line break |
+| `新段落` / `new paragraph` | insert a blank line |
+| `句号` `逗号` `问号` `感叹号` `分号` `冒号` | insert that punctuation |
+| `不要发送` / `don't send` | keep the text in the composer without sending |
+| `发送` / `send` | send immediately (the default) |
 
 Language and input device live on the plugin detail page under **Plugins**.
 
@@ -75,4 +94,8 @@ MIT. See [LICENSE](LICENSE) and [NOTICE](NOTICE) for the upstream attribution.
 首次使用点「下载并准备」拉取约 242 MB 模型（只需一次）。
 
 注意：如果之前开过内置的「语音输入」插件，请先关掉它，否则两者会注册同一个识别服务。
-本插件的设置页也会常驻一条提示，说明这一点，避免打开后一头雾水。
+设置页里有一键「停用内置语音输入」按钮，点一下就行。
+
+**0.3.0 新增**：说话时每 2.6 秒把最近 8 秒的录音转写一次、实时显示在波形下方；句尾加指令词
+（换行、新段落、句号、逗号、问号、感叹号、分号、冒号、不要发送、发送）会按指令处理；设置页的
+冲突提示旁边多了一个「停用内置语音输入」按钮。
