@@ -1,6 +1,6 @@
 {
   "name": "dsh-plugin-voice-autosend",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Voice input for the DeepSeek Harness composer: speak, transcribe locally with SenseVoice, and send the message automatically.",
   "icon": "./icon.png",
   "type": "module",

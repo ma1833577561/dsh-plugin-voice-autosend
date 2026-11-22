@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.3.1
+
+- The settings page explains the conflict in three concrete steps when the host
+  refuses the automatic switch-off (the plugin manager remote is not exposed to
+  third-party bundles), instead of a single terse line.
+- New screenshots: live transcript while recording, refreshed composer and settings.
+
 ## 0.3.0
 
 - **Live transcript while recording.** Every couple of seconds the recorder's audio so
