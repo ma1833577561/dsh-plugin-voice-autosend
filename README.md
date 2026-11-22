@@ -6,6 +6,10 @@ the draft first. Transcription runs **locally** on your machine with SenseVoice,
 
 ![Microphone button in the composer](docs/voice-howto.png)
 
+While you speak, the last few seconds are transcribed continuously and shown under the waveform:
+
+![Live transcript while recording](docs/live-transcript.png)
+
 ## What it does
 
 - **Speak instead of typing** — a microphone button sits between the model picker and the send button.
